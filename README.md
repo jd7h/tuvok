@@ -2,32 +2,23 @@
 Star Trek episode selector based on IMDB-ratings
 
 ```
->>> tuvok.main(8.0)
+>>> tuvok.main("tt0303461",8.0)
 Season 1
 ----------
-8.2      10 The Corbomite Maneuver
-8.5      11 The Menagerie: Part I
-8.4      12 The Menagerie: Part II
-9.0      14 Balance of Terror
-8.1      18 Arena  
-9.0      22 Space Seed
-8.1      23 A Taste of Armageddon
-8.1      24 This Side of Paradise
-8.5      25 The Devil in the Dark
-8.3      26 Errand of Mercy
-9.3      28 The City on the Edge of Forever
+8.6      1 The Train Job
+8.7      2 Bushwhacked
+9.2      3 Our Mrs. Reynolds
+9.0      4 Jaynestown
+9.5      5 Out of Gas
+8.6      6 Shindig
+8.3      7 Safe
+9.2      8 Ariel
+9.1      9 War Stories
+9.5      10 Objects in Space
+9.1      11 Serenity
+8.5      12 Heart of Gold
+9.0      13 Trash
+8.6      14 The Message
 
-Season 2
-----------
-8.8      1 Amok Time
-9.2      4 Mirror, Mirror
-8.8      6 The Doomsday Machine
-8.6      10 Journey to Babel
-9.0      15 The Trouble with Tribbles
-
-Season 3
-----------
-8.6      2 The Enterprise Incident
-8.1      9 The Tholian Web
-8.3      23 All Our Yesterdays
+Firefly (2002–2003) has 14 episodes with rating >= 8.0.
 ```
