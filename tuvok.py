@@ -2,22 +2,39 @@
 import json
 import urllib.request
 
-def get_series_info(series):
+def get_series_info(series,season=0):
     url = "http://www.omdbapi.com/?i="
-    print(url + series)
+    #print(url + series)
+    apicall = ""
+    if season > 0:
+        apicall = url + series + "&Season=" + str(season)
+    else:
+        apicall = url + series
     try:
-        conn = urllib.request.urlopen(url + series)
+        conn = urllib.request.urlopen(apicall)
     except:
-        print("Error:",series,"not found in OMDB")
+        print("Error fetching data")
         return ""
     data = conn.read().decode()
-    print(data)
     series_info = json.loads(data)
-    print(series_info)
+    #print("Fetched data:")
+    #print(series_info)
     return series_info
 
-def main():
-    get_series_info("tt0060028")
+def main(min_rating):
+    series_info = get_series_info("tt0060028")
+    totalSeasons = int(series_info["totalSeasons"])
+    for i in range(1,totalSeasons+1):
+        series_info["Season_" + str(i)] = get_series_info(series_info["imdbID"],i)
+    for i in range(1,totalSeasons+1):
+        print("Season",i)
+        print("----------")
+        for episode in series_info["Season_"+str(i)]["Episodes"]:
+            if float(episode["imdbRating"]) > min_rating:
+                print(episode["imdbRating"],"\t",episode["Episode"],episode["Title"])
+        print()
+            
+    #return series_info
 
 if __name__ == "__main__":
     main()
