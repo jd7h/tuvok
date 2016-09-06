@@ -1,5 +1,14 @@
 # tuvok
-Star Trek episode selector based on IMDB-ratings
+TV-series episode selector based on IMDB-ratings. 
+
+## Etymology
+Named after [Tuvok](https://en.wikipedia.org/wiki/Tuvok), the security officer from Star Trek: Voyager. After all, it is only logical to watch only the highest-rated episodes of classic series.
+
+## Goal
+I originally made this script for determining which subset of Star Trek episodes to watch.
+
+## Usage and output
+The script takes two inputs: an IMDB-id and a minimum rating. I will work on neat argument parsing in the future.
 
 ```
 >>> tuvok.main("tt0303461",8.0)
