@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+import argparse
 import json
 import urllib.request
 
 def get_series_info(series,season=0):
     url = "http://www.omdbapi.com/?i="
-    #print(url + series)
+    print(url + series)
     apicall = ""
     if season > 0:
         apicall = url + series + "&Season=" + str(season)
@@ -12,13 +13,14 @@ def get_series_info(series,season=0):
         apicall = url + series
     try:
         conn = urllib.request.urlopen(apicall)
-    except:
+    except Exception as e:
+        print(e)
         print("Error fetching data")
         return ""
     data = conn.read().decode()
     series_info = json.loads(data)
-    #print("Fetched data:")
-    #print(series_info)
+    print("Fetched data:")
+    print(series_info)
     return series_info
 
 def main(imdbID,min_rating):
@@ -48,4 +50,8 @@ def main(imdbID,min_rating):
     #return series_info
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='TV-series episode selector based on IMDB-ratings.')
+    parser.add_argument('id',metavar='id',type=str,help = 'IMDB-id for the TV series')
+    parser.add_argument('rating',metavar='min_rating',type=float,help='Minimum rating of the episode in the series')
+    args = parser.parse_args()
+    main(args.id,args.rating)
