@@ -1,6 +1,8 @@
 # tuvok
 TV-series episode selector based on IMDB-ratings. 
 
+ *[May 2017] Unfortunately, [the OMDb API is no longer free](https://www.patreon.com/posts/api-is-going-10743518). That means that Tuvok no longer works without an API-key. The code has not been updated to reflect this change.*
+
 ## Etymology
 Named after [Tuvok](https://en.wikipedia.org/wiki/Tuvok), the security officer from Star Trek: Voyager. After all, it is only logical to watch only the highest-rated episodes of classic series.
 
