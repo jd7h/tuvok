@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import json
 import urllib.request
+import argparse
+
 
 def get_series_info(series,season=0):
     url = "http://www.omdbapi.com/?i="
@@ -44,8 +46,12 @@ def main(imdbID,min_rating):
     else:
         print("Warning:",imdbID,"refers to",series_info["Title"],"(" + series_info["Year"] + ")")
         print("Error: Unable to display episodes for","'" + series_info["Type"] + "'","object.")
-            
+
     #return series_info
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='TV-series episode selector based on IMDB-ratings')
+    parser.add_argument('-id', '--imdbID', required=True, dest="imdb_id", help="")
+    parser.add_argument('-r', '--minRating', required=True, type=float, dest="min_rating", help="")
+    args = parser.parse_args()
+    main(args.imdb_id, args.min_rating)
